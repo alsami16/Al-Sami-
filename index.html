@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Al Sami Chowdhury | Textile Engineer</title>
+    <title>Al Sami Chowdhury | Textile Engineer & Photographer</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Lightbox Gallery CSS (simple lightbox) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -326,6 +327,120 @@
             font-weight: 500;
         }
 
+        /* Events Section Styles */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+        .event-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(93, 155, 255, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(122, 179, 255, 0.15);
+        }
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 40px rgba(93, 155, 255, 0.15);
+        }
+        .event-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .event-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .event-card:hover .event-img img {
+            transform: scale(1.05);
+        }
+        .event-content {
+            padding: 24px;
+        }
+        .event-date {
+            font-size: 0.8rem;
+            color: #5D9BFF;
+            font-weight: 600;
+            display: inline-block;
+            background: #EFF5FF;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+        }
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1A3E60;
+        }
+        .event-desc {
+            color: #5F7B9C;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        /* Photography Gallery Section */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: white;
+            border: 1px solid #CDDFFF;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #5D9BFF;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #5D9BFF;
+            color: white;
+            border-color: #5D9BFF;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+        }
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 30px rgba(93, 155, 255, 0.2);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: 0.3s;
+        }
+        .gallery-caption {
+            padding: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #4A627A;
+            text-align: center;
+            border-top: 1px solid #F0F4FC;
+        }
+
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -420,6 +535,9 @@
             .contact-wrapper {
                 padding: 28px;
             }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
         }
     </style>
 </head>
@@ -434,6 +552,8 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#photography">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -442,16 +562,15 @@
     <section id="home">
         <div class="hero">
             <div class="hero-content" data-aos="fade-right">
-                <div class="hero-badge"><i class="fas fa-fire"></i> Textile Innovator</div>
+                <div class="hero-badge"><i class="fas fa-fire"></i> Textile Innovator & Visual Artist</div>
                 <h1>Hi, I'm Al Sami Chowdhury</h1>
-                <p>A highly motivated Textile Engineering student passionate about innovative textile solutions, garment production, and quality precision.</p>
+                <p>A highly motivated Textile Engineering student passionate about innovative textile solutions, garment production, and creative photography.</p>
                 <div class="hero-buttons">
                     <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
-                    <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+                    <button class="btn-outline" onclick="document.getElementById('photography').scrollIntoView({behavior:'smooth'})">View Gallery</button>
                 </div>
                 <div class="skills-highlight">
                     <span class="skill-chip"><i class="fas fa-tachometer-alt"></i> Textile Engineer</span>
-                
                     <span class="skill-chip"><i class="fas fa-camera"></i> Photography</span>
                 </div>
             </div>
@@ -470,7 +589,7 @@
             <div class="about-text" data-aos="fade-up">
                 <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I'm a Textile Engineering student at Northern University Bangladesh with a strong interest in textile materials, product quality, and innovation within the apparel and textile industry. Alongside my academic journey, I've been actively involved in campus organizations where I've developed leadership, communication, and project coordination skills.</p>
                 <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I currently serve as the Assistant General Secretary of the Film & Photography Club, where I help manage club operations and coordinate events. I also worked as Media & Communication Secretary of the NUB Textile Club, managing digital communications and supporting seminars and workshops related to textile education.</p>
-                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">        Beyond academics and leadership roles, I enjoy photography and visual content creation, which has strengthened my creativity and storytelling skills. I'm comfortable working with tools like MS Excel, Word, PowerPoint, Canva, and I enjoy presenting ideas clearly and working in collaborative environments.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">Beyond academics and leadership roles, I enjoy photography and visual content creation, which has strengthened my creativity and storytelling skills. I'm comfortable working with tools like MS Excel, Word, PowerPoint, Canva, and I enjoy presenting ideas clearly and working in collaborative environments.</p>
                 <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">What drives me is the opportunity to learn, contribute, and grow within the textile and apparel industry. I'm particularly interested in roles related to textile production, quality control, product development, and supply chain operations. I'm always open to connecting with industry professionals, recruiters, and fellow textile enthusiasts.</p>
                 
                 <div class="timeline-item"><strong>Bachelor of Science</strong><br>Department of Textile Engineering, Northern University Bangladesh (Ongoing)</div>
@@ -493,21 +612,20 @@
                     <span class="Short-item">Hindi (Basic)</span>
                 </div>
             </div>
-            
-            
-        </div>
-    </section>
-<div class="info-card" data-aos="fade-up">
-                <h3></i> Personal Info</h3>
+            <div class="info-card" data-aos="fade-up">
+                <h3><i class="fas fa-user-circle"></i> Personal Info</h3>
                 <div class="info-row"><span>Birthday:</span><span>16 August 2005</span></div>
                 <div class="info-row"><span>Phone:</span><span>+8801741443807</span></div>
-                <div class="info-row"><span>Present City:</span><span>Nikunjo-2, Khilkhet,Dhaka, Bangladesh</span></div>
-                <div class="info-row"><span>Home Town:</span><span>Mirsarai,Chattogram, Bangladesh</span></div>
+                <div class="info-row"><span>Present City:</span><span>Nikunjo-2, Khilkhet, Dhaka</span></div>
+                <div class="info-row"><span>Home Town:</span><span>Mirsarai, Chattogram</span></div>
                 <div class="info-row"><span>Blood Group:</span><span>B(+)ve</span></div>
                 <div class="info-row"><span>Degree:</span><span>Bachelor (Ongoing)</span></div>
                 <h3 style="margin-top:32px;">Hobbies & Interests</h3>
-                <p style="color:#5F7B9C;"> Photography · Anime · Music ·  Movies</p>
+                <p style="color:#5F7B9C;"> Photography · Anime · Music · Movies · Travel</p>
             </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title" data-aos="fade-up">Expertise & Skills</h2>
@@ -535,9 +653,48 @@
             <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="skill-icon"><i class="fas fa-camera-retro"></i></div>
                 <h3>Creative Skills</h3>
-                <div class="skill-tags"><span class="skill-tag">Photography (Hobby)</span><span class="skill-tag">Visual Content</span></div>
+                <div class="skill-tags"><span class="skill-tag">Photography</span><span class="skill-tag">Visual Storytelling</span><span class="skill-tag">Lightroom</span></div>
             </div>
         </div>
+    </section>
+
+    <!-- Events & Engagements Section (NEW) -->
+    <section id="events">
+        <h2 class="section-title" data-aos="fade-up">Events & Engagements</h2>
+        <div class="events-grid">
+            <div class="event-card" data-aos="fade-up">
+                <div class="event-img"><img src="https://i.postimg.cc/nzt7BXsC/image.png" alt="Textile Seminar"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> Dechember 2025</div>
+                    <h3 class="event-title">Poster presentation </h3>
+                    <p class="event-desc">Organized by NUB Textile Club. In Textile Day 2025 on Dechember 2025.</p>
+                </div>
+            </div>
+            <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="event-img"><img src="https://picsum.photos/id/26/400/250" alt="Photography Workshop"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> Coming Soon </div>
+                    <h3 class="event-title">Frames & Focus Workshop</h3>
+                    <p class="event-desc">Coming Soon </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Gallery Section (NEW) -->
+    <section id="photography">
+        <h2 class="section-title" data-aos="fade-up">Photography Gallery</h2>
+        <div class="gallery-filters" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nature">Nature & City</button>
+            <button class="filter-btn" data-filter="portrait">Portrait & Events</button>
+            <button class="filter-btn" data-filter="street">Street & Moments</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamic gallery loaded via JS, but also static placeholder to ensure structure. We'll populate with high-quality unsplash-like demos but showcase Al Sami's style. Use representative photography images -->
+        </div>
+        <p style="text-align: center; margin-top: 32px; color: #7C8BA0;"><i class="fas fa-camera"></i> Capturing moments that tell stories — my visual journey</p>
     </section>
 
     <!-- Contact Section -->
@@ -567,14 +724,16 @@
     </section>
 
     <footer>
-        <p>© 2026 Al Sami Chowdhury — Textile Engineering & Creativity. All visions crafted with precision.</p>
+        <p>© 2026 Al Sami Chowdhury — Textile Engineering & Visual Creativity. All visions crafted with precision.</p>
     </footer>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 <script>
     AOS.init({ duration: 800, once: true, offset: 80 });
     
+    // Contact form handler
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
     form.addEventListener('submit', (e) => {
@@ -585,15 +744,53 @@
         setTimeout(() => feedback.innerHTML = '', 3000);
     });
     
+    // Photography Gallery Data (showcasing Al Sami's style - nature, urban, portraits)
+    const galleryData = [
+        { id: 1, category: "nature", url: "https://i.postimg.cc/nrR03Vxq/20260330-182956.jpg", caption: "Night" },
+        { id: 2, category: "nature", url: "https://i.postimg.cc/rmv1hfYV/PXL-20250929-112934341-MP-2.jpg", caption: "Golden Hour " },
+       
+        { id: 4, category: "street", url: "https://i.postimg.cc/DyCZnSn8/PXL-20240928-082519513-MP.jpg", caption: "Urban Life, Dhaka City" },
+
+        { id: 6, category: "portrait", url: "https://i.postimg.cc/qv3dSqRr/1734336508905.jpg", caption: "Nature" },
+        { id: 7, category: "nature", url: "https://i.postimg.cc/cHrq7LVW/IMG20220921104518-01.jpg", caption: "Chittagong Hill Tracts" },
+        { id: 8, category: "street", url: "https://i.postimg.cc/FKwkm7b7/20250625-184832.jpg", caption: "City Architecture" },
+
+    ];
+    
+    function renderGallery(filter = "all") {
+        const grid = document.getElementById("galleryGrid");
+        if (!grid) return;
+        const filtered = filter === "all" ? galleryData : galleryData.filter(item => item.category === filter);
+        grid.innerHTML = filtered.map(item => `
+            <div class="gallery-item" data-category="${item.category}">
+                <a href="${item.url}" data-lightbox="portfolio" data-title="${item.caption}">
+                    <img class="gallery-img" src="${item.url}" alt="${item.caption}">
+                </a>
+                <div class="gallery-caption">${item.caption}</div>
+            </div>
+        `).join('');
+        // re-init lightbox (optional)
+        if (window.lightbox) window.lightbox.init();
+    }
+    
+    // filter buttons logic
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filterValue = btn.getAttribute("data-filter");
+            renderGallery(filterValue);
+        });
+    });
+    
+    // initial render
+    renderGallery("all");
+    
     document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
-        btn.addEventListener('mouseenter', (e) => {
-            e.target.style.transform = 'translateY(-2px)';
-        });
-        btn.addEventListener('mouseleave', (e) => {
-            e.target.style.transform = 'translateY(0px)';
-        });
+        btn.addEventListener('mouseenter', (e) => { e.target.style.transform = 'translateY(-2px)'; });
+        btn.addEventListener('mouseleave', (e) => { e.target.style.transform = 'translateY(0px)'; });
     });
 </script>
 </body>
 </html>
-```
