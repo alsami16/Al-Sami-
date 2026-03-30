@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Al Sami Chowdhury | Textile Engineer</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F5F9FF;
+            color: #1E2F4E;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Light Blue & White Premium Theme */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #FFFFFF 0%, #E8F0FE 100%);
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.02;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EFF2F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7AB3FF;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(122, 179, 255, 0.2);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2B6EB0, #5D9BFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4A627A;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #5D9BFF;
+        }
+
+        .btn-primary {
+            background: linear-gradient(95deg, #5D9BFF, #3B7FDD);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 14px rgba(93, 155, 255, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(93, 155, 255, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #5D9BFF;
+            padding: 10px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #5D9BFF;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #5D9BFF;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: space-between;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: linear-gradient(135deg, rgba(93,155,255,0.12), rgba(93,155,255,0.05));
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #5D9BFF;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1A3E60;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #5F7B9C;
+            margin-bottom: 32px;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .skills-highlight {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .skill-chip {
+            background: white;
+            box-shadow: 0 2px 8px rgba(93, 155, 255, 0.08);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #5D9BFF;
+            border: 1px solid rgba(93, 155, 255, 0.25);
+        }
+        .hero-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-frame {
+            width: 340px;
+            height: 340px;
+            background: linear-gradient(145deg, #FFFFFF, #E5EFFA);
+            border-radius: 50% 45% 55% 45% / 50% 40% 60% 50%;
+            overflow: hidden;
+            box-shadow: 0 30px 40px rgba(93, 155, 255, 0.2);
+            border: 4px solid white;
+            transition: transform 0.4s;
+        }
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+        .profile-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            color: #1A3E60;
+        }
+        .section-title:after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #7AB3FF, #B8D4FF);
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            border-radius: 4px;
+        }
+
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+        .about-text {
+            flex: 2;
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(93, 155, 255, 0.08);
+        }
+        .info-card {
+            flex: 1.2;
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(93, 155, 255, 0.08);
+            border: 1px solid rgba(122, 179, 255, 0.2);
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #EFF2F9;
+            padding: 14px 0;
+            color: #4A627A;
+        }
+        .timeline-item {
+            margin-bottom: 28px;
+            border-left: 3px solid #7AB3FF;
+            padding-left: 20px;
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .lang-item, .Short-item {
+            background: #F0F5FF;
+            border-radius: 32px;
+            padding: 8px 20px;
+            font-weight: 500;
+            color: #5D9BFF;
+            font-size: 0.85rem;
+        }
+
+        .skills-category {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            transition: all 0.3s;
+            border: 1px solid #EFF2F9;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: #7AB3FF;
+            box-shadow: 0 20px 30px -12px rgba(93, 155, 255, 0.2);
+        }
+        .skill-icon {
+            font-size: 2.2rem;
+            color: #5D9BFF;
+            margin-bottom: 20px;
+        }
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: #1A3E60;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-tag {
+            background: #F0F5FF;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #5D9BFF;
+            font-weight: 500;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            background: white;
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: 0 15px 40px rgba(93, 155, 255, 0.1);
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-form {
+            flex: 1.2;
+        }
+        .contact-detail {
+            display: flex;
+            gap: 16px;
+            margin: 24px 0;
+            align-items: center;
+            color: #4A627A;
+        }
+        .contact-detail i {
+            color: #5D9BFF;
+            width: 28px;
+        }
+        .social-links a {
+            color: #7C8BA0;
+            font-size: 1.6rem;
+            margin-right: 24px;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .social-links a:hover {
+            color: #5D9BFF;
+            transform: translateY(-3px);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #F8FBFF;
+            border: 1px solid #E2EAF5;
+            border-radius: 16px;
+            color: #1E2F4E;
+            margin-bottom: 18px;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #7AB3FF;
+            box-shadow: 0 0 0 3px rgba(122, 179, 255, 0.2);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #7C8BA0;
+            border-top: 1px solid #EFF2F9;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                padding: 0 24px;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 32px auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .skills-highlight {
+                justify-content: center;
+            }
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+            }
+            .section-title {
+                text-align: center;
+                display: block;
+            }
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .contact-wrapper {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="gradient-bg"></div>
+<div class="noise"></div>
+
+<div class="container">
+    <nav>
+        <div class="logo">Al Sami<span style="color:#5D9BFF;">.</span>Chowdhury</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content" data-aos="fade-right">
+                <div class="hero-badge"><i class="fas fa-fire"></i> Textile Innovator</div>
+                <h1>Hi, I'm Al Sami Chowdhury</h1>
+                <p>A highly motivated Textile Engineering student passionate about innovative textile solutions, garment production, and quality precision.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+                    <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+                </div>
+                <div class="skills-highlight">
+                    <span class="skill-chip"><i class="fas fa-tachometer-alt"></i> Textile Engineer</span>
+                
+                    <span class="skill-chip"><i class="fas fa-camera"></i> Photography</span>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="profile-frame">
+                    <img src="https://i.postimg.cc/Zn9mqXDL/PXL-20250929-111250807-2.jpg" alt="Al Sami Chowdhury">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text" data-aos="fade-up">
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I'm a Textile Engineering student at Northern University Bangladesh with a strong interest in textile materials, product quality, and innovation within the apparel and textile industry. Alongside my academic journey, I've been actively involved in campus organizations where I've developed leadership, communication, and project coordination skills.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I currently serve as the Assistant General Secretary of the Film & Photography Club, where I help manage club operations and coordinate events. I also worked as Media & Communication Secretary of the NUB Textile Club, managing digital communications and supporting seminars and workshops related to textile education.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">        Beyond academics and leadership roles, I enjoy photography and visual content creation, which has strengthened my creativity and storytelling skills. I'm comfortable working with tools like MS Excel, Word, PowerPoint, Canva, and I enjoy presenting ideas clearly and working in collaborative environments.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">What drives me is the opportunity to learn, contribute, and grow within the textile and apparel industry. I'm particularly interested in roles related to textile production, quality control, product development, and supply chain operations. I'm always open to connecting with industry professionals, recruiters, and fellow textile enthusiasts.</p>
+                
+                <div class="timeline-item"><strong>Bachelor of Science</strong><br>Department of Textile Engineering, Northern University Bangladesh (Ongoing)</div>
+                <div class="timeline-item"><strong>HSC</strong><br>Mahajanahat Fazlur Rahaman School & College, Mirshari, Chattogram — Year: 2022</div>
+                <div class="timeline-item"><strong>SSC</strong><br>Zhulonpol Bani Madhob High School, Mirshari, Chattogram — Year: 2020</div>
+                <div class="timeline-item"><strong>JSC</strong><br>Zhulonpol Bani Madhob High School, Mirshari, Chattogram — Year: 2017</div>
+                
+                <h3 style="margin: 32px 0 16px 0; color:#1A3E60;">Leadership & Memberships</h3>
+                <div class="tag-group">
+                    <span class="lang-item">Media & Communication Secretary, NUB Textile Club</span>
+                    <span class="lang-item">Asst. General Secretary, NUB Film & Photography Club</span>
+                    <span class="lang-item">Campus Team Member, Excellence Bangladesh</span>
+                    <span class="lang-item">General Member, Textile Engineers Society</span>
+                </div>
+
+                <h3 style="margin: 32px 0 16px 0; color:#1A3E60;">Language Proficiency</h3>
+                <div class="tag-group">
+                    <span class="Short-item">Bengali (Native)</span>
+                    <span class="Short-item">English (Professional)</span>
+                    <span class="Short-item">Hindi (Basic)</span>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+<div class="info-card" data-aos="fade-up">
+                <h3></i> Personal Info</h3>
+                <div class="info-row"><span>Birthday:</span><span>16 August 2005</span></div>
+                <div class="info-row"><span>Phone:</span><span>+8801741443807</span></div>
+                <div class="info-row"><span>Present City:</span><span>Nikunjo-2, Khilkhet,Dhaka, Bangladesh</span></div>
+                <div class="info-row"><span>Home Town:</span><span>Mirsarai,Chattogram, Bangladesh</span></div>
+                <div class="info-row"><span>Blood Group:</span><span>B(+)ve</span></div>
+                <div class="info-row"><span>Degree:</span><span>Bachelor (Ongoing)</span></div>
+                <h3 style="margin-top:32px;">Hobbies & Interests</h3>
+                <p style="color:#5F7B9C;"> Photography · Anime · Music ·  Movies</p>
+            </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title" data-aos="fade-up">Expertise & Skills</h2>
+        <div class="skills-category">
+            <div class="skill-card" data-aos="zoom-in">
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h3>Technical Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Fabric Analysis</span>
+                    <span class="skill-tag">Garment Production</span>
+                    <span class="skill-tag">Quality Control</span>
+                    <span class="skill-tag">Material Science</span>
+                </div>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Software Skills</h3>
+                <div class="skill-tags"><span class="skill-tag">MS Excel</span><span class="skill-tag">Canva</span><span class="skill-tag">MS Word</span><span class="skill-tag">PowerPoint</span></div>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="skill-icon"><i class="fas fa-users"></i></div>
+                <h3>Soft Skills</h3>
+                <div class="skill-tags"><span class="skill-tag">Presentation</span><span class="skill-tag">Strategic Comm.</span><span class="skill-tag">Team Leadership</span><span class="skill-tag">Time Mgmt</span></div>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="skill-icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Creative Skills</h3>
+                <div class="skill-tags"><span class="skill-tag">Photography (Hobby)</span><span class="skill-tag">Visual Content</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+        <div class="contact-wrapper" data-aos="fade-up">
+            <div class="contact-info">
+                <div class="contact-detail"><i class="fas fa-map-marker-alt fa-lg"></i> <span>House: 29, Road: 10, Nikunjo-2, Khilkhet, Dhaka-1229</span></div>
+                <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+8801741443807</span></div>
+                <div class="contact-detail"><i class="fas fa-envelope"></i> <span>alsamichy2004@gmail.com</span></div>
+                <div class="social-links" style="margin-top: 32px;">
+                    <a href="https://linkedin.com/in/al-sami-chowdhury-7839ba38b" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/alsamichowdhury1608" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/chowdhury_al_sami" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea rows="4" placeholder="Your Message..."></textarea>
+                    <button type="submit" class="btn-primary" style="width:100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+                    <p id="formFeedback" style="margin-top:12px; font-size:0.8rem; color:#5D9BFF;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Al Sami Chowdhury — Textile Engineering & Creativity. All visions crafted with precision.</p>
+    </footer>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 80 });
+    
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thanks! Sami will reach out soon.';
+        feedback.style.color = '#5D9BFF';
+        form.reset();
+        setTimeout(() => feedback.innerHTML = '', 3000);
+    });
+    
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+        btn.addEventListener('mouseenter', (e) => {
+            e.target.style.transform = 'translateY(-2px)';
+        });
+        btn.addEventListener('mouseleave', (e) => {
+            e.target.style.transform = 'translateY(0px)';
+        });
+    });
+</script>
+</body>
+</html>
+```
