@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Lightbox Gallery CSS (simple lightbox) -->
+    <!-- Lightbox Gallery CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
     <style>
         * {
@@ -20,13 +20,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #F5F9FF;
-            color: #1E2F4E;
+            /* Light Yellow & Blue & Black Theme: base light yellow background, deep blue accents, black text */
+            background: #FFFBF0;  /* soft light yellow */
+            color: #1E1E1E;       /* near-black for rich contrast */
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Light Blue & White Premium Theme */
+        /* Gradient with light yellow to pale cream */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -34,7 +35,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: linear-gradient(135deg, #FFFFFF 0%, #E8F0FE 100%);
+            background: linear-gradient(135deg, #FFF6E0 0%, #FFFAF0 100%);
         }
 
         .noise {
@@ -45,17 +46,17 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.02;
+            opacity: 0.03;
         }
 
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #EFF2F9;
+            background: #FFF0D0;
         }
         ::-webkit-scrollbar-thumb {
-            background: #7AB3FF;
+            background: #1E3A8A;  /* deep blue */
             border-radius: 10px;
         }
 
@@ -69,23 +70,24 @@
             padding: 80px 0;
         }
 
+        /* Navbar: semi-transparent light yellow with deep blue borders */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 24px 0;
             flex-wrap: wrap;
-            background: rgba(255,255,255,0.96);
+            background: rgba(255, 248, 225, 0.96);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(122, 179, 255, 0.2);
+            border-bottom: 1px solid #FFE2A4;
         }
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #2B6EB0, #5D9BFF);
+            background: linear-gradient(135deg, #0A2540, #1E3A8A);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -98,17 +100,18 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: #4A627A;
+            color: #1E2A3A;
             font-weight: 600;
             transition: 0.3s;
             font-size: 0.95rem;
         }
         .nav-links a:hover {
-            color: #5D9BFF;
+            color: #1E3A8A;
         }
 
+        /* Buttons: deep blue with yellow/white text */
         .btn-primary {
-            background: linear-gradient(95deg, #5D9BFF, #3B7FDD);
+            background: linear-gradient(95deg, #1E3A8A, #2B4C9E);
             border: none;
             padding: 12px 32px;
             border-radius: 40px;
@@ -117,28 +120,30 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
-            box-shadow: 0 4px 14px rgba(93, 155, 255, 0.3);
+            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(93, 155, 255, 0.4);
+            background: linear-gradient(95deg, #2B4C9E, #1E3A8A);
+            box-shadow: 0 12px 28px rgba(30, 58, 138, 0.35);
         }
         .btn-outline {
             background: transparent;
-            border: 2px solid #5D9BFF;
+            border: 2px solid #1E3A8A;
             padding: 10px 30px;
             border-radius: 40px;
             font-weight: 600;
-            color: #5D9BFF;
+            color: #1E3A8A;
             transition: 0.3s;
             cursor: pointer;
         }
         .btn-outline:hover {
-            background: #5D9BFF;
-            color: white;
+            background: #1E3A8A;
+            color: #FFFBF0;
             transform: translateY(-2px);
         }
 
+        /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
@@ -150,13 +155,13 @@
             flex: 1;
         }
         .hero-badge {
-            background: linear-gradient(135deg, rgba(93,155,255,0.12), rgba(93,155,255,0.05));
+            background: rgba(30, 58, 138, 0.08);
             display: inline-block;
             padding: 6px 16px;
             border-radius: 40px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: #5D9BFF;
+            color: #1E3A8A;
             margin-bottom: 20px;
         }
         .hero-content h1 {
@@ -164,11 +169,11 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
-            color: #1A3E60;
+            color: #0A1C2F;
         }
         .hero-content p {
             font-size: 1.2rem;
-            color: #5F7B9C;
+            color: #2C3E50;
             margin-bottom: 32px;
             max-width: 550px;
             line-height: 1.6;
@@ -186,13 +191,13 @@
         }
         .skill-chip {
             background: white;
-            box-shadow: 0 2px 8px rgba(93, 155, 255, 0.08);
+            box-shadow: 0 2px 8px rgba(30, 58, 138, 0.1);
             padding: 8px 20px;
             border-radius: 40px;
             font-size: 0.85rem;
             font-weight: 500;
-            color: #5D9BFF;
-            border: 1px solid rgba(93, 155, 255, 0.25);
+            color: #1E3A8A;
+            border: 1px solid #FFE2A4;
         }
         .hero-image {
             flex: 0.8;
@@ -202,11 +207,11 @@
         .profile-frame {
             width: 340px;
             height: 340px;
-            background: linear-gradient(145deg, #FFFFFF, #E5EFFA);
+            background: linear-gradient(145deg, #FFF2DD, #FFE8C8);
             border-radius: 50% 45% 55% 45% / 50% 40% 60% 50%;
             overflow: hidden;
-            box-shadow: 0 30px 40px rgba(93, 155, 255, 0.2);
-            border: 4px solid white;
+            box-shadow: 0 30px 40px rgba(30, 58, 138, 0.15);
+            border: 4px solid #FFE8C0;
             transition: transform 0.4s;
         }
         .profile-frame img {
@@ -225,19 +230,20 @@
             margin-bottom: 50px;
             position: relative;
             display: inline-block;
-            color: #1A3E60;
+            color: #0A1C2F;
         }
         .section-title:after {
             content: '';
             width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, #7AB3FF, #B8D4FF);
+            background: linear-gradient(90deg, #1E3A8A, #FFD966);
             position: absolute;
             bottom: -12px;
             left: 0;
             border-radius: 4px;
         }
 
+        /* Cards: white/light-yellow backgrounds with blue accents */
         .about-grid {
             display: flex;
             flex-wrap: wrap;
@@ -248,26 +254,27 @@
             background: white;
             border-radius: 28px;
             padding: 32px;
-            box-shadow: 0 10px 30px rgba(93, 155, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #FFE6B3;
         }
         .info-card {
             flex: 1.2;
             background: white;
             border-radius: 28px;
             padding: 32px;
-            box-shadow: 0 10px 30px rgba(93, 155, 255, 0.08);
-            border: 1px solid rgba(122, 179, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #FFE6B3;
         }
         .info-row {
             display: flex;
             justify-content: space-between;
-            border-bottom: 1px solid #EFF2F9;
+            border-bottom: 1px solid #FFF0D4;
             padding: 14px 0;
-            color: #4A627A;
+            color: #2C3E50;
         }
         .timeline-item {
             margin-bottom: 28px;
-            border-left: 3px solid #7AB3FF;
+            border-left: 3px solid #1E3A8A;
             padding-left: 20px;
         }
         .tag-group {
@@ -277,14 +284,16 @@
             margin-top: 20px;
         }
         .lang-item, .Short-item {
-            background: #F0F5FF;
+            background: #FFF4E0;
             border-radius: 32px;
             padding: 8px 20px;
             font-weight: 500;
-            color: #5D9BFF;
+            color: #1E3A8A;
             font-size: 0.85rem;
+            border: 1px solid #FFE2B5;
         }
 
+        /* Skills Section */
         .skills-category {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -295,23 +304,23 @@
             border-radius: 24px;
             padding: 28px;
             transition: all 0.3s;
-            border: 1px solid #EFF2F9;
+            border: 1px solid #FFE6B3;
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
         .skill-card:hover {
             transform: translateY(-6px);
-            border-color: #7AB3FF;
-            box-shadow: 0 20px 30px -12px rgba(93, 155, 255, 0.2);
+            border-color: #1E3A8A;
+            box-shadow: 0 20px 30px -12px rgba(30, 58, 138, 0.2);
         }
         .skill-icon {
             font-size: 2.2rem;
-            color: #5D9BFF;
+            color: #1E3A8A;
             margin-bottom: 20px;
         }
         .skill-card h3 {
             font-size: 1.4rem;
             margin-bottom: 16px;
-            color: #1A3E60;
+            color: #0A1C2F;
         }
         .skill-tags {
             display: flex;
@@ -319,15 +328,15 @@
             gap: 12px;
         }
         .skill-tag {
-            background: #F0F5FF;
+            background: #FFF4E0;
             padding: 6px 16px;
             border-radius: 30px;
             font-size: 0.8rem;
-            color: #5D9BFF;
+            color: #1E3A8A;
             font-weight: 500;
         }
 
-        /* Events Section Styles */
+        /* Events Cards */
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -338,13 +347,13 @@
             background: white;
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 12px 28px rgba(93, 155, 255, 0.08);
+            box-shadow: 0 12px 28px rgba(30, 58, 138, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid rgba(122, 179, 255, 0.15);
+            border: 1px solid #FFE2B5;
         }
         .event-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 40px rgba(93, 155, 255, 0.15);
+            box-shadow: 0 24px 40px rgba(30, 58, 138, 0.15);
         }
         .event-img {
             height: 200px;
@@ -364,10 +373,10 @@
         }
         .event-date {
             font-size: 0.8rem;
-            color: #5D9BFF;
+            color: #1E3A8A;
             font-weight: 600;
             display: inline-block;
-            background: #EFF5FF;
+            background: #FFF4E0;
             padding: 4px 12px;
             border-radius: 40px;
             margin-bottom: 12px;
@@ -376,15 +385,15 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: #1A3E60;
+            color: #0A1C2F;
         }
         .event-desc {
-            color: #5F7B9C;
+            color: #3A4E6B;
             line-height: 1.5;
             font-size: 0.9rem;
         }
 
-        /* Photography Gallery Section */
+        /* Photography Gallery */
         .gallery-filters {
             display: flex;
             justify-content: center;
@@ -394,19 +403,19 @@
         }
         .filter-btn {
             background: white;
-            border: 1px solid #CDDFFF;
+            border: 1px solid #FFD9A3;
             padding: 8px 24px;
             border-radius: 40px;
             font-weight: 600;
-            color: #5D9BFF;
+            color: #1E3A8A;
             cursor: pointer;
             transition: all 0.2s;
             font-size: 0.85rem;
         }
         .filter-btn.active, .filter-btn:hover {
-            background: #5D9BFF;
-            color: white;
-            border-color: #5D9BFF;
+            background: #1E3A8A;
+            color: #FFFBF0;
+            border-color: #1E3A8A;
         }
         .gallery-grid {
             display: grid;
@@ -420,10 +429,11 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             transition: all 0.3s;
             cursor: pointer;
+            border: 1px solid #FFE6B3;
         }
         .gallery-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 20px 30px rgba(93, 155, 255, 0.2);
+            box-shadow: 0 20px 30px rgba(30, 58, 138, 0.2);
         }
         .gallery-img {
             width: 100%;
@@ -436,11 +446,13 @@
             padding: 16px;
             font-size: 0.85rem;
             font-weight: 500;
-            color: #4A627A;
+            color: #2C3E50;
             text-align: center;
-            border-top: 1px solid #F0F4FC;
+            border-top: 1px solid #FFF0D4;
+            background: #FEFAF0;
         }
 
+        /* Contact Section: light yellow & deep blue accents */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -448,7 +460,8 @@
             background: white;
             border-radius: 32px;
             padding: 48px;
-            box-shadow: 0 15px 40px rgba(93, 155, 255, 0.1);
+            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.08);
+            border: 1px solid #FFE6B3;
         }
         .contact-info {
             flex: 1;
@@ -461,45 +474,45 @@
             gap: 16px;
             margin: 24px 0;
             align-items: center;
-            color: #4A627A;
+            color: #2C3E50;
         }
         .contact-detail i {
-            color: #5D9BFF;
+            color: #1E3A8A;
             width: 28px;
         }
         .social-links a {
-            color: #7C8BA0;
+            color: #4A5B6E;
             font-size: 1.6rem;
             margin-right: 24px;
             transition: 0.2s;
             display: inline-block;
         }
         .social-links a:hover {
-            color: #5D9BFF;
+            color: #1E3A8A;
             transform: translateY(-3px);
         }
         input, textarea {
             width: 100%;
             padding: 14px 18px;
-            background: #F8FBFF;
-            border: 1px solid #E2EAF5;
+            background: #FFFCF5;
+            border: 1px solid #FFE2B5;
             border-radius: 16px;
-            color: #1E2F4E;
+            color: #1E1E1E;
             margin-bottom: 18px;
             transition: 0.2s;
             font-family: 'Inter', sans-serif;
         }
         input:focus, textarea:focus {
             outline: none;
-            border-color: #7AB3FF;
-            box-shadow: 0 0 0 3px rgba(122, 179, 255, 0.2);
+            border-color: #1E3A8A;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
         }
 
         footer {
             padding: 40px 0;
             text-align: center;
-            color: #7C8BA0;
-            border-top: 1px solid #EFF2F9;
+            color: #4A5B6E;
+            border-top: 1px solid #FFE6B3;
         }
 
         @media (max-width: 800px) {
@@ -547,7 +560,7 @@
 
 <div class="container">
     <nav>
-        <div class="logo">Al Sami<span style="color:#5D9BFF;">.</span>Chowdhury</div>
+        <div class="logo">Al Sami<span style="color:#1E3A8A;">.</span>Chowdhury</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -587,17 +600,16 @@
         <h2 class="section-title" data-aos="fade-up">About Me</h2>
         <div class="about-grid">
             <div class="about-text" data-aos="fade-up">
-                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I'm a Textile Engineering student at Northern University Bangladesh with a strong interest in textile materials, product quality, and innovation within the apparel and textile industry. Alongside my academic journey, I've been actively involved in campus organizations where I've developed leadership, communication, and project coordination skills.</p>
-                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">I currently serve as the Assistant General Secretary of the Film & Photography Club, where I help manage club operations and coordinate events. I also worked as Media & Communication Secretary of the NUB Textile Club, managing digital communications and supporting seminars and workshops related to textile education.</p>
-                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">Beyond academics and leadership roles, I enjoy photography and visual content creation, which has strengthened my creativity and storytelling skills. I'm comfortable working with tools like MS Excel, Word, PowerPoint, Canva, and I enjoy presenting ideas clearly and working in collaborative environments.</p>
-                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#2C4568;">What drives me is the opportunity to learn, contribute, and grow within the textile and apparel industry. I'm particularly interested in roles related to textile production, quality control, product development, and supply chain operations. I'm always open to connecting with industry professionals, recruiters, and fellow textile enthusiasts.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#1F2F40;">I'm a Textile Engineering student at Northern University Bangladesh with a strong interest in textile materials, product quality, and innovation within the apparel and textile industry. Alongside my academic journey, I've been actively involved in campus organizations where I've developed leadership, communication, and project coordination skills.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#1F2F40;">I currently serve as the Assistant General Secretary of the Film & Photography Club, where I help manage club operations and coordinate events. I also worked as Media & Communication Secretary of the NUB Textile Club, managing digital communications and supporting seminars and workshops related to textile education.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#1F2F40;">Beyond academics and leadership roles, I enjoy photography and visual content creation, which has strengthened my creativity and storytelling skills. I'm comfortable working with tools like MS Excel, Word, PowerPoint, Canva, and I enjoy presenting ideas clearly and working in collaborative environments.</p>
+                <p style="font-size:1rem; line-height:1.7; margin-bottom:24px; color:#1F2F40;">What drives me is the opportunity to learn, contribute, and grow within the textile and apparel industry. I'm particularly interested in roles related to textile production, quality control, product development, and supply chain operations. I'm always open to connecting with industry professionals, recruiters, and fellow textile enthusiasts.</p>
                 
                 <div class="timeline-item"><strong>Bachelor of Science (Ongoing) </strong><br>Department of Textile Engineering.<p>Northern University Bangladesh.</p><p>Enroll Semester: Fall-23</p><p>Student I'd:30230300988 <p>Current Semester: 8th (Spring-26) </p></p>Year:2023-Present<p> </div>
                 <div class="timeline-item"><strong>Higher School Certificate</strong><br>Mahajanahat Fazlur Rahaman School & College. <p>Mirshari, Chattogram</p> <p>Department of Science.<p><p>Section: B</p> <p>Year:2020-2022</p></div>
                 <div class="timeline-item"><strong>Secondary School Certificate</strong><br>Zhulonpol Bani Madhob High School. <p>Mirshari, Chattogram</p> <p>Department of Science.<p> Year:2018- 2020</div>
                
-                
-                <h3 style="margin: 32px 0 16px 0; color:#1A3E60;">Leadership & Memberships</h3>
+                <h3 style="margin: 32px 0 16px 0; color:#0A1C2F;">Leadership & Memberships</h3>
                 <div class="tag-group">
                     <span class="lang-item">Media & Communication Secretary, NUB Textile Club</span>
                     <span class="lang-item">Asst. General Secretary, NUB Film & Photography Club</span>
@@ -605,17 +617,14 @@
                     <span class="lang-item">General Member, Textile Engineers Society</span>
                 </div>
 
-                <h3 style="margin: 32px 0 16px 0; color:#1A3E60;">Language Proficiency</h3>
+                <h3 style="margin: 32px 0 16px 0; color:#0A1C2F;">Language Proficiency</h3>
                 <div class="tag-group">
                     <span class="Short-item">Bengali (Native)</span>
                     <span class="Short-item">English (Professional)</span>
                     <span class="Short-item">Hindi (Basic)</span>
                 </div>
             </div>
-            
-        </div>
-    </section>
-<div class="info-card" data-aos="fade-up">
+            <div class="info-card" data-aos="fade-up">
                 <h3><i class="fas fa-user-circle"></i> Personal Info</h3>
                 <div class="info-row"><span>Birthday:</span><span>16 August 2005</span></div>
                 <div class="info-row"><span>Phone:</span><span>+8801741443807</span></div>
@@ -625,6 +634,9 @@
                 <div class="info-row"><span>Degree:</span><span>Bachelor (Ongoing)</span></div>
                 <div class="info-row"><span>Hobbies & Interests:</span><span>Photography · Anime · Music · Movies ·Tech· Travel</span></div>
             </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title" data-aos="fade-up">Expertise & Skills</h2>
@@ -657,31 +669,30 @@
         </div>
     </section>
 
-    <!-- Events & Engagements Section (NEW) -->
+    <!-- Events & Engagements Section -->
     <section id="events">
         <h2 class="section-title" data-aos="fade-up">Events & Engagements</h2>
         <div class="events-grid">
             <div class="event-card" data-aos="fade-up">
                 <div class="event-img"><img src="https://i.postimg.cc/nzt7BXsC/image.png" alt="Textile Seminar"></div>
                 <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Dechember 2025</div>
-                    <h3 class="event-title">Poster presentation </h3>
-                    <p class="event-desc">Organized by NUB Textile Club. In Textile Day 2025 on Dechember 2025.</p>
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> December 2025</div>
+                    <h3 class="event-title">Poster presentation</h3>
+                    <p class="event-desc">Organized by NUB Textile Club. In Textile Day 2025 on December 2025.</p>
                 </div>
             </div>
             <div class="event-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="event-img"><img src="https://picsum.photos/id/26/400/250" alt="Photography Workshop"></div>
                 <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar-alt"></i> Coming Soon </div>
+                    <div class="event-date"><i class="far fa-calendar-alt"></i> Coming Soon</div>
                     <h3 class="event-title">Frames & Focus Workshop</h3>
-                    <p class="event-desc">Coming Soon </p>
+                    <p class="event-desc">Coming Soon</p>
                 </div>
-            </div>
             </div>
         </div>
     </section>
 
-    <!-- Photography Gallery Section (NEW) -->
+    <!-- Photography Gallery Section -->
     <section id="photography">
         <h2 class="section-title" data-aos="fade-up">Photography Gallery</h2>
         <div class="gallery-filters" data-aos="fade-up">
@@ -690,10 +701,8 @@
             <button class="filter-btn" data-filter="portrait">Portrait & Events</button>
             <button class="filter-btn" data-filter="street">Street & Moments</button>
         </div>
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Dynamic gallery loaded via JS, but also static placeholder to ensure structure. We'll populate with high-quality unsplash-like demos but showcase Al Sami's style. Use representative photography images -->
-        </div>
-        <p style="text-align: center; margin-top: 32px; color: #7C8BA0;"><i class="fas fa-camera"></i> Capturing moments that tell stories — my visual journey</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <p style="text-align: center; margin-top: 32px; color: #4A5B6E;"><i class="fas fa-camera"></i> Capturing moments that tell stories — my visual journey</p>
     </section>
 
     <!-- Contact Section -->
@@ -716,7 +725,7 @@
                     <input type="email" placeholder="Email Address" required>
                     <textarea rows="4" placeholder="Your Message..."></textarea>
                     <button type="submit" class="btn-primary" style="width:100%;">Send Message <i class="fas fa-paper-plane"></i></button>
-                    <p id="formFeedback" style="margin-top:12px; font-size:0.8rem; color:#5D9BFF;"></p>
+                    <p id="formFeedback" style="margin-top:12px; font-size:0.8rem; color:#1E3A8A;"></p>
                 </form>
             </div>
         </div>
@@ -732,28 +741,23 @@
 <script>
     AOS.init({ duration: 800, once: true, offset: 80 });
     
-    // Contact form handler
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thanks! Sami will reach out soon.';
-        feedback.style.color = '#5D9BFF';
+        feedback.style.color = '#1E3A8A';
         form.reset();
         setTimeout(() => feedback.innerHTML = '', 3000);
     });
     
-    // Photography Gallery Data (showcasing Al Sami's style - nature, urban, portraits)
     const galleryData = [
-        { id: 1, category: "nature", url: "https://i.postimg.cc/nrR03Vxq/20260330-182956.jpg", caption: "Night" },
-        { id: 2, category: "nature", url: "https://i.postimg.cc/rmv1hfYV/PXL-20250929-112934341-MP-2.jpg", caption: "Golden Hour " },
-       
+        { id: 1, category: "nature", url: "https://i.postimg.cc/nrR03Vxq/20260330-182956.jpg", caption: "Night Glow" },
+        { id: 2, category: "nature", url: "https://i.postimg.cc/rmv1hfYV/PXL-20250929-112934341-MP-2.jpg", caption: "Golden Hour" },
         { id: 4, category: "street", url: "https://i.postimg.cc/DyCZnSn8/PXL-20240928-082519513-MP.jpg", caption: "Urban Life, Dhaka City" },
-
-        { id: 6, category: "portrait", url: "https://i.postimg.cc/qv3dSqRr/1734336508905.jpg", caption: "Nature" },
+        { id: 6, category: "portrait", url: "https://i.postimg.cc/qv3dSqRr/1734336508905.jpg", caption: "Nature Escape" },
         { id: 7, category: "nature", url: "https://i.postimg.cc/cHrq7LVW/IMG20220921104518-01.jpg", caption: "Chittagong Hill Tracts" },
         { id: 8, category: "street", url: "https://i.postimg.cc/FKwkm7b7/20250625-184832.jpg", caption: "City Architecture" },
-
     ];
     
     function renderGallery(filter = "all") {
@@ -768,22 +772,18 @@
                 <div class="gallery-caption">${item.caption}</div>
             </div>
         `).join('');
-        // re-init lightbox (optional)
         if (window.lightbox) window.lightbox.init();
     }
     
-    // filter buttons logic
     const filterBtns = document.querySelectorAll(".filter-btn");
     filterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             filterBtns.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            const filterValue = btn.getAttribute("data-filter");
-            renderGallery(filterValue);
+            renderGallery(btn.getAttribute("data-filter"));
         });
     });
     
-    // initial render
     renderGallery("all");
     
     document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
