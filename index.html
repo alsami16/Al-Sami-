@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +22,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Light Yellow & Blue & Black Theme: base light yellow background, deep blue accents, black text */
-            background: #FFFBF0;  /* soft light yellow */
-            color: #1E1E1E;       /* near-black for rich contrast */
+            /* Light Yellow & Blue & Black Theme: soft light yellow base */
+            background: #FFFBF0;
+            color: #1E1E1E;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Gradient with light yellow to pale cream */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -56,7 +57,7 @@
             background: #FFF0D0;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1E3A8A;  /* deep blue */
+            background: #1E3A8A;
             border-radius: 10px;
         }
 
@@ -70,7 +71,7 @@
             padding: 80px 0;
         }
 
-        /* Navbar: semi-transparent light yellow with deep blue borders */
+        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -109,7 +110,7 @@
             color: #1E3A8A;
         }
 
-        /* Buttons: deep blue with yellow/white text */
+        /* Buttons */
         .btn-primary {
             background: linear-gradient(95deg, #1E3A8A, #2B4C9E);
             border: none;
@@ -243,7 +244,7 @@
             border-radius: 4px;
         }
 
-        /* Cards: white/light-yellow backgrounds with blue accents */
+        /* About Section Cards */
         .about-grid {
             display: flex;
             flex-wrap: wrap;
@@ -452,7 +453,7 @@
             background: #FEFAF0;
         }
 
-        /* Contact Section: light yellow & deep blue accents */
+        /* Contact Section: Embedded Google Form instead of old form */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -466,8 +467,21 @@
         .contact-info {
             flex: 1;
         }
-        .contact-form {
+        .contact-form-container {
             flex: 1.2;
+        }
+        .google-form-embed {
+            width: 100%;
+            height: 550px;
+            border-radius: 20px;
+            border: 1px solid #FFE2B5;
+            background: #FFFCF5;
+            overflow: hidden;
+        }
+        .google-form-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         .contact-detail {
             display: flex;
@@ -490,22 +504,6 @@
         .social-links a:hover {
             color: #1E3A8A;
             transform: translateY(-3px);
-        }
-        input, textarea {
-            width: 100%;
-            padding: 14px 18px;
-            background: #FFFCF5;
-            border: 1px solid #FFE2B5;
-            border-radius: 16px;
-            color: #1E1E1E;
-            margin-bottom: 18px;
-            transition: 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #1E3A8A;
-            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
         }
 
         footer {
@@ -547,6 +545,10 @@
             }
             .contact-wrapper {
                 padding: 28px;
+                flex-direction: column;
+            }
+            .google-form-embed {
+                height: 500px;
             }
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -624,7 +626,9 @@
                     <span class="Short-item">Hindi (Basic)</span>
                 </div>
             </div>
-            <div class="info-card" data-aos="fade-up">
+            
+    </section>
+<div class="info-card" data-aos="fade-up">
                 <h3><i class="fas fa-user-circle"></i> Personal Info</h3>
                 <div class="info-row"><span>Birthday:</span><span>16 August 2005</span></div>
                 <div class="info-row"><span>Phone:</span><span>+8801741443807</span></div>
@@ -635,8 +639,6 @@
                 <div class="info-row"><span>Hobbies & Interests:</span><span>Photography · Anime · Music · Movies ·Tech· Travel</span></div>
             </div>
         </div>
-    </section>
-
     <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title" data-aos="fade-up">Expertise & Skills</h2>
@@ -705,7 +707,7 @@
         <p style="text-align: center; margin-top: 32px; color: #4A5B6E;"><i class="fas fa-camera"></i> Capturing moments that tell stories — my visual journey</p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Embedded Google Form (no manual name/email fields) -->
     <section id="contact">
         <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
         <div class="contact-wrapper" data-aos="fade-up">
@@ -717,22 +719,21 @@
                     <a href="https://linkedin.com/in/al-sami-chowdhury-7839ba38b" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.facebook.com/alsamichowdhury1608" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/chowdhury_al_sami" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <!-- New X (Twitter) link added as requested -->
+                    <a href="https://x.com/ITS_SA_MI" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <textarea rows="4" placeholder="Your Message..."></textarea>
-                    <button type="submit" class="btn-primary" style="width:100%;">Send Message <i class="fas fa-paper-plane"></i></button>
-                    <p id="formFeedback" style="margin-top:12px; font-size:0.8rem; color:#1E3A8A;"></p>
-                </form>
+            <div class="contact-form-container">
+                <div class="google-form-embed">
+                    <!-- Google Form embedded directly from the provided link (published editor view) -->
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdetUDXLjHkueG9ouEcBYsZrHu9Mwswefc8wrpqBsk_LlZURA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Al Sami Chowdhury — Textile Engineering & Visual Creativity. All visions crafted with precision.</p>
+        <p>© 2026 Al Sami Chowdhury</p>
     </footer>
 </div>
 
@@ -741,16 +742,7 @@
 <script>
     AOS.init({ duration: 800, once: true, offset: 80 });
     
-    const form = document.getElementById('contactForm');
-    const feedback = document.getElementById('formFeedback');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thanks! Sami will reach out soon.';
-        feedback.style.color = '#1E3A8A';
-        form.reset();
-        setTimeout(() => feedback.innerHTML = '', 3000);
-    });
-    
+    // Photography Gallery Data
     const galleryData = [
         { id: 1, category: "nature", url: "https://i.postimg.cc/nrR03Vxq/20260330-182956.jpg", caption: "Night Glow" },
         { id: 2, category: "nature", url: "https://i.postimg.cc/rmv1hfYV/PXL-20250929-112934341-MP-2.jpg", caption: "Golden Hour" },
@@ -793,3 +785,4 @@
 </script>
 </body>
 </html>
+```
